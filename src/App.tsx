@@ -33,13 +33,6 @@ interface coordinates {
   y: number;
 }
 
-interface commands {
-  input: string;
-  output: string;
-}
-
-
-
 
 const App = () => {
   const [pairIndex, setPairIndex] = React.useState(0);
