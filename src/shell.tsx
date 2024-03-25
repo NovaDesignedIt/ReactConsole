@@ -31,12 +31,14 @@ import { IoCloseCircle } from "react-icons/io5";
         id: number;
         callback: (state: number) => void;
         consoleObj: any;
+        callbackFocus:(state: number) => void;
+        FocusIndex: number;
     }
 
 
 
 
-    const Shell: React.FC<tsconsole> = ({ id, callback, consoleObj }) => {
+    const Shell: React.FC<tsconsole> = ({ id, callback, consoleObj,callbackFocus,FocusIndex }) => {
     const [pairIndex, setPairIndex] = React.useState(0);
     const [windowHeight, setWindowHeight] = React.useState(window.innerHeight);
     const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
@@ -50,8 +52,10 @@ import { IoCloseCircle } from "react-icons/io5";
     const closeShell= (index:number) => {
         callback(index);
     }  
+    const SetShellFocus = (index:number) => {
+        callbackFocus(index);
+    }
     
-  
     const [isDragging, setIsDragging]= React.useState
   (false);
     const [dragStart, setDragStart]= React.useState
@@ -154,15 +158,15 @@ import { IoCloseCircle } from "react-icons/io5";
   
   
     return (
-          <div key={id}  onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove} 
-            onMouseUp={handleMouseUp}   style={{ left:modalPosition.x,top:modalPosition.y, zIndex:1,position:"fixed",backgroundColor: "#000", boxShadow: "20px 20px 10px rgba(0, 0, 0, 0.5)", borderRadius: "10px", border: "2px solid #333", fontFamily: "Hack, monospace", width: "800px", height: "400px", flexDirection: "column", display: "flex" }}>
+          <div key={id}  onMouseDown={(e)=> {handleMouseDown(e); callbackFocus(id);}}
+            onMouseMove={handleMouseMove}  
+            onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}  style={{ left:modalPosition.x,top:modalPosition.y, zIndex:FocusIndex,position:"fixed",backgroundColor: "#000", boxShadow: "20px 20px 10px rgba(0, 0, 0, 0.5)", borderRadius: "10px", border: "2px solid #333", fontFamily: "Hack, monospace", width: "800px", height: "400px", flexDirection: "column", display: "flex" }}>
             {/* INPUT -> FIRST ROW  FIRST COLUMN*/}
             <div style={{flexDirection:"row",display:"flex"}}>
             <textarea
               value={val}
               style={{
-                overflow: "hidden", marginRight: "0", resize: "none", outline: "none", border: "none", color: "#ddd", fontSize: "20px", backgroundColor: "#000", width: "auto", padding: "20px", borderRadius: "10px", overflowY: "auto", // Enable vertical scrolling
+                overflow: "hidden", marginRight: "0", resize: "none", outline: "none", border: "none", color: "#ddd", fontSize: "20px", backgroundColor: "#000", width: "100%", padding: "20px", borderRadius: "10px", overflowY: "auto", // Enable vertical scrolling
                 scrollbarWidth: "none", // Hide the scrollbar in Firefox
                 "&. WebkitScrollbar": {
                   display: "none" // Hide the scrollbar in WebKit browsers
