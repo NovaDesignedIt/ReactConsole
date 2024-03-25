@@ -38,36 +38,24 @@ interface commands {
   output: string;
 }
 
-async function Evaluate(inputValue: string) {
-  try {
-    const result = await eval(`${inputValue}`);
-    return result; // This will log the result of getallrecords
-  } catch (error: any) {
-    throw new Error(error);
-  }
-}
-
 
 
 
 const App = () => {
   const [pairIndex, setPairIndex] = React.useState(0);
+  // @ts-ignore
   const [windowHeight, setWindowHeight] = React.useState(window.innerHeight);
+  // @ts-ignore
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
   const [coordinates, setcoordinates] = React.useState<coordinates>({ x: 0, y: 0 });
   const [MouseDown, setMouseDown] = React.useState(false);
   const [inputValue, setInputValue] = React.useState<string | any[] | React.ReactElement>();
-  const [val, setVal] = React.useState('');
-  const [commands, setCommands] = React.useState<commands[]>([{ input: '', output: '' }]);
-  const [CmdIndex, setIndex] = React.useState(0);
+
   const [Shells, setShells] = React.useState<JSX.Element[]>([]);
   const [infovisible, setinfovisible] = React.useState(false);
 
 
 
-  const addCommand = (newCommand: commands) => {
-    setCommands(prevCommands => [...prevCommands, newCommand]);
-  };
 
   const dump = (dumpstr: any) => {
     return dumpstr

@@ -37,10 +37,13 @@ import { IoCloseCircle } from "react-icons/io5";
 
 
 
-
-    const Shell: React.FC<tsconsole> = ({ id, callback, consoleObj,callbackFocus,FocusIndex }) => {
+// @ts-ignore
+const Shell: React.FC<tsconsole> = ({ id, callback, consoleObj, callbackFocus, FocusIndex }) => {
+    // @ts-ignore
     const [pairIndex, setPairIndex] = React.useState(0);
+    // @ts-ignore
     const [windowHeight, setWindowHeight] = React.useState(window.innerHeight);
+    // @ts-ignore
     const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
     const [coordinates,setcoordinates] = React.useState<coordinates>({x:0,y:0});  
     const [MouseDown,setMouseDown] = React.useState(false); 
