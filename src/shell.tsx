@@ -52,9 +52,7 @@ import { IoCloseCircle } from "react-icons/io5";
     const closeShell= (index:number) => {
         callback(index);
     }  
-    const SetShellFocus = (index:number) => {
-        callbackFocus(index);
-    }
+  
     
     const [isDragging, setIsDragging]= React.useState
   (false);
@@ -168,6 +166,7 @@ import { IoCloseCircle } from "react-icons/io5";
               style={{
                 overflow: "hidden", marginRight: "0", resize: "none", outline: "none", border: "none", color: "#ddd", fontSize: "20px", backgroundColor: "#000", width: "100%", padding: "20px", borderRadius: "10px", overflowY: "auto", // Enable vertical scrolling
                 scrollbarWidth: "none", // Hide the scrollbar in Firefox
+                // @ts-ignore
                 "&. WebkitScrollbar": {
                   display: "none" // Hide the scrollbar in WebKit browsers
                 }
