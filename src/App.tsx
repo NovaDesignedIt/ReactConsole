@@ -174,16 +174,20 @@ const App = () => {
                   width: "60%", fontSize: "15px", wordWrap: "break-word"
                 }}><strong>variables</strong> terminals dont have memory <strong>(yet) </strong> so issuing lets say; var x = "u lazy devs"; <strong>(ENTER)</strong>  and then issue dump(x)<strong>(ENTER)</strong>, nothing come out :( you must write it in one script: var x = "u lay devs" ;dump(x); <strong>(ENTER)</strong>  </p>
               </li>
+
+
             </ul>
+
+            <div style={{ marginBottom: "auto", gap: "5px", justifyContent: "center", width: "100%", height: "1%", display: "flex", flexDirection: "row", padding: "10px" }}>
+              <FaGithub style={{ cursor: "pointer", color: "#fff" }} />
+              <a style={{ color: "#fff" }} target='_blank' href='https://github.com/NovaDesignedIt/ReactConsole'>github.com/NovaDesignedIt/ReactConsole</a>
+            </div>
           </div>
         </div>
 
 
       </div>
-      <div style={{ position: "absolute", backgroundColor: "#999999", marginBottom: "0", gap: "5px", justifyContent: "center", width: "100%", height: "1%", display: "flex", flexDirection: "row", padding: "10px" }}>
-        <FaGithub style={{ cursor: "pointer", color: "#000" }} />
-        <a style={{ color: "#000" }} target='_blank' href='https://github.com/NovaDesignedIt/ReactConsole'>github.com/NovaDesignedIt/ReactConsole</a>
-      </div>
+
     </>
   );
 }
