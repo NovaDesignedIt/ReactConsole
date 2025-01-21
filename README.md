@@ -2,4 +2,4 @@
 a Simple In Browser Javascript console
 
 
-#try it out: https://reactconsole.pages.dev/
+# try it out: https://reactconsole.pages.dev/
